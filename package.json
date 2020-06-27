@@ -1,0 +1,16 @@
+{
+  "name": "wss-apigateway",
+  "version": "1.0.0",
+  "description": "A Websocket with API Gateway",
+  "main": "handler.js",
+  "repository": "https://github.com/luisaugustomelo/wss-apigateway",
+  "author": "Luis Rohten",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.706.0"
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-offline": "^6.4.0"
+  }
+}
