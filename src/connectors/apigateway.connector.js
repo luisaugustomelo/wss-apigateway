@@ -2,7 +2,6 @@
 
 const aws = require('aws-sdk');
 
-// const CONSTANTS = require('./../constants');
 // const dynamodbConnector = require('./dynamodb.connector');
 
 class ApiGatewayConnector {
