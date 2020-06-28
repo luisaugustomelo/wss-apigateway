@@ -1,5 +1,6 @@
 
 const apigatewayConnector = require('../connectors/apigateway.connector');
+const dynamodbConnector = require('../connectors/dynamodb.connector');
 
 const defaultSocketHandler = async (event, context) => {
     try {
