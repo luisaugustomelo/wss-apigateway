@@ -75,9 +75,9 @@ const handleSocketConnect = async (event, context) => {
 
 const handleSocketDisconnect = async (event, context) => {
     try {
-        // const connectionId = event.requestContext.connectionId;
+        const connectionId = event.requestContext.connectionId;
 
-        // await dynamodbConnector.removeSocket(connectionId);
+        await dynamodbConnector.removeSocket(connectionId);
         console.log(event);
 
         return {
