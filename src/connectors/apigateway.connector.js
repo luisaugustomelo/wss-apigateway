@@ -1,14 +1,14 @@
 'use strict';
 
 const aws = require('aws-sdk');
-
 const dynamodbConnector = require('./dynamodb.connector');
+const CONSTANTS = require('../constants');
 
 class ApiGatewayConnector {
-    constructor(event) {
+    constructor() {
         const CONNECTOR_OPTS = {
-            endpoint: event.requestContext.domainName + "/" + event.requestContext.stage,
-            apiVersion: "2018-11-29",
+            endpoint: CONSTANTS.WEBSOCKET_API_ENDPOINT,
+            apiVersion: CONSTANTS.API_VERSION,
         };
         this._connector = new aws.ApiGatewayManagementApi(CONNECTOR_OPTS);
     }

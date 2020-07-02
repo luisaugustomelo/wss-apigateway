@@ -1,5 +1,5 @@
 
-// const apigatewayConnector = require('../connectors/apigateway.connector');
+const apigatewayConnector = require('../connectors/apigateway.connector');
 const dynamodbConnector = require('../connectors/dynamodb.connector');
 
 const defaultSocketHandler = async (event, context) => {
@@ -7,18 +7,16 @@ const defaultSocketHandler = async (event, context) => {
         const data = JSON.parse(event.body);
         const action = data.action;
 
-        console.log(action);
-
-        // const connectionId = event.requestContext.connectionId;
-        // switch (action) {
-        //     case 'PING':
-        //         const pingResponse = JSON.stringify({action: 'PING', value: 'PONG'});
-        //         await apigatewayConnector.generateSocketMessage(connectionId, pingResponse);
-        //         break;
-        //     default:
-        //         const invalidResponse = JSON.stringify({action: 'ERROR', error: 'Invalid request'});
-        //         await apigatewayConnector.generateSocketMessage(connectionId, invalidResponse);
-        // }
+        const connectionId = event.requestContext.connectionId;
+        switch (action.toUpperCase()) {
+            case 'PING':
+                const pingResponse = JSON.stringify({action: 'PING', value: 'PONG'});
+                await apigatewayConnector.generateSocketMessage(connectionId, pingResponse);
+                break;
+            default:
+                const invalidResponse = JSON.stringify({action: 'ERROR', error: 'Invalid request'});
+                await apigatewayConnector.generateSocketMessage(connectionId, invalidResponse);
+        }
 
         return {
             statusCode: 200,

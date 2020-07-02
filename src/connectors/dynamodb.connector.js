@@ -1,8 +1,7 @@
 'use strict';
 
 const aws = require('aws-sdk');
-
-const CHATCONNECTION_TABLE = 'chatIdTable';
+const CONSTANTS = require('../constants')
 
 class DynamoDbConnector {
     constructor() {
@@ -15,7 +14,7 @@ class DynamoDbConnector {
 
     async registerSocket(connectionId, connectionType) {
         const socketParams = {
-            TableName: CHATCONNECTION_TABLE,
+            TableName: CONSTANTS.DYNAMODB_SOCKETS_TABLE,
             Item: {
                 connectionId,
                 type: connectionType
@@ -27,7 +26,7 @@ class DynamoDbConnector {
 
     async removeSocket(connectionId) {
         const socketParams = {
-            TableName: CHATCONNECTION_TABLE,
+            TableName: CONSTANTS.DYNAMODB_SOCKETS_TABLE,
             Key: {
                 connectionId
             }

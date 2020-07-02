@@ -4,8 +4,6 @@ provider:
   name: aws
   runtime: nodejs12.x
   memorySize: 256
-  timeout: 30
-  region: us-east-2
 
   iamRoleStatements:
     - Effect: Allow
