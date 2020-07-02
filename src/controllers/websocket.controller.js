@@ -1,7 +1,7 @@
 
 const apigatewayConnector = require('../connectors/apigateway.connector');
 const dynamodbConnector = require('../connectors/dynamodb.connector');
-
+const CONSTANTS = require('../constants')
 const defaultSocketHandler = async (event, context) => {
     try {
         const data = JSON.parse(event.body);
@@ -21,8 +21,8 @@ const defaultSocketHandler = async (event, context) => {
         return {
             statusCode: 200,
             headers: {
-                'Content-Type': 'text/plain',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': CONSTANTS.CONTENT_TYPE,
+                'Access-Control-Allow-Origin': CONSTANTS.CORS_ORIGIN
             },
             body: 'Default socket response.'
         };
@@ -31,8 +31,8 @@ const defaultSocketHandler = async (event, context) => {
         return {
             statusCode: 500,
             headers: {
-                'Content-Type': 'text/plain',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': CONSTANTS.CONTENT_TYPE,
+                'Access-Control-Allow-Origin': CONSTANTS.CORS_ORIGIN
             },
             body: 'Default socket response error.'
         }
@@ -53,8 +53,8 @@ const handleSocketConnect = async (event, context) => {
         return {
             statusCode: 200,
             headers: {
-                'Content-Type': 'text/plain',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': CONSTANTS.CONTENT_TYPE,
+                'Access-Control-Allow-Origin': CONSTANTS.CORS_ORIGIN
             },
             body: 'Socket successfully registered.'
         };
@@ -63,8 +63,8 @@ const handleSocketConnect = async (event, context) => {
         return {
             statusCode: 500,
             headers: {
-                'Content-Type': 'text/plain',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': CONSTANTS.CONTENT_TYPE,
+                'Access-Control-Allow-Origin': CONSTANTS.CORS_ORIGIN
             },
             body: 'Unable to register socket.'
         }
@@ -81,8 +81,8 @@ const handleSocketDisconnect = async (event, context) => {
         return {
             statusCode: 200,
             headers: {
-                'Content-Type': 'text/plain',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': CONSTANTS.CONTENT_TYPE,
+                'Access-Control-Allow-Origin': CONSTANTS.CORS_ORIGIN
             },
             body: 'Socket successfully terminated.'
         };
@@ -91,8 +91,8 @@ const handleSocketDisconnect = async (event, context) => {
         return {
             statusCode: 500,
             headers: {
-                'Content-Type': 'text/plain',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': CONSTANTS.CONTENT_TYPE,
+                'Access-Control-Allow-Origin': CONSTANTS.CORS_ORIGIN
             },
             body: 'Unable to terminate socket.'
         }
