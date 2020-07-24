@@ -38,7 +38,9 @@ functions:
     events:
       - websocket:
           route: $default
-
+plugins:
+  - serverless-offline
+  
 resources:
   Resources:
     ChatTable:
