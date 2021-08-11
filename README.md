@@ -4,6 +4,12 @@
 
 ## Test
 
-- Sending connection type in query string: wscat -c wss://g5uogzwy7l.execute-api.us-east-2.amazonaws.com/dev?connectionType=socket
+- Sending connection type in query string: 
+```bash
+wscat -c wss://g5uogzwy7l.execute-api.us-east-2.amazonaws.com/dev?connectionType=socket
+```
 
-- {"action": "ping", "data": "oi"}
+- Health check
+```bash
+    {"action": "ping", "data": "oi"}
+```
