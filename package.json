@@ -11,7 +11,7 @@
     "test": "wscat -c wss://yjiwkgq1a3.execute-api.us-east-1.amazonaws.com/dev?connectionType=socket"
   },
   "dependencies": {
-    "aws-sdk": "^2.706.0",
+    "aws-sdk": "^2.814.0",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
